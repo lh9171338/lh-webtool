@@ -1,0 +1,6 @@
+.idea/
+dist/
+src/*.egg-info
+*.pyc
+src/lh_webtool/static
+.vscode
