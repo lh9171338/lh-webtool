@@ -10,7 +10,7 @@ import os
 import re
 import logging
 import argparse
-from urllib.request import urlopen
+import requests
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 from typing import Dict, List, Optional
@@ -98,8 +98,7 @@ class Crawler:
         pattern = new_attrs[url_key]
 
         try:
-            response = urlopen(url)
-            html = response.read().decode()
+            html = requests.get(url).text
             soup = BeautifulSoup(html, "lxml")
 
             # find using attrs
