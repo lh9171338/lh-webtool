@@ -88,7 +88,7 @@ class Crawler:
         Returns:
             url_links(list): list of url link
         """
-        url_links = []
+        url_links = set()
 
         # compile pattern
         new_attrs = {url_key: pattern}
@@ -109,12 +109,12 @@ class Crawler:
                 index = 1 if match.lastindex else 0
                 url_link = match.group(index)
                 if url_link:
-                    url_links.append(url_link)
+                    url_links.add(url_link)
 
         except Exception as e:
             logging.error(e)
 
-        return url_links
+        return list(url_links)
 
     def crawl(
         self,
