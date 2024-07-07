@@ -23,7 +23,7 @@ cd lh-webtool
 
 python -m build
 
-pip install dist/lh_webtool-1.1.0-py3-none-any.whl
+pip install dist/lh_webtool-1.2.0-py3-none-any.whl
 ```
 
 * Install from the Python Package Index (PyPI)
