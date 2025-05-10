@@ -5,7 +5,8 @@ This is a web tool package.
 
 # Updates
 
- - [x] 2024.03.24: Add `Crawler` and `play_image_web` module
+ - [x] 2024.11.06: Add `hf_download` module
+ - [x] 2024.03.24: Add `Crawler` and `play_image_web` modules
 
 # Tools
 
@@ -24,7 +25,7 @@ cd lh-webtool
 
 python -m build
 
-pip install dist/lh_webtool-1.3.2-py3-none-any.whl
+pip install dist/lh_webtool-1.3.3-py3-none-any.whl
 ```
 
 * Install from the Python Package Index (PyPI)
