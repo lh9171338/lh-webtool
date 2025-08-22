@@ -24,13 +24,17 @@
         var imageIndex = 0;
         var imageUrls = [
             {% for url in image_urls %}
-                '{{ url }}',
+                {% if url.startswith("http://") or url.startswith("https://") or url.startswith("static/")%}
+                    "{{ url }}",
+                {% else %}
+                    "{{ url_for('serve_image', filename=url) }}",
+                {% endif %}
             {% endfor %}
         ];
 
         function displayImage(index) {
             $('#image').attr('src', imageUrls[index]);
-            $('#progress').attr('value', index);
+            $('#progress').val(index);
         }
 
         $(document).ready(function() {
@@ -55,6 +59,12 @@
                 imageIndex = (imageIndex + 1) % imageUrls.length;
                 displayImage(imageIndex);
             });
+
+            // 滑块拖动跳转
+            $('#progress').on('input change', function() {
+                imageIndex = parseInt($(this).val());
+                displayImage(imageIndex);
+            });
         });
     </script>
 </head>
@@ -63,7 +73,7 @@
         <img id="image" src="">
     </div>
     <br>
-    <progress id="progress" value="0" max="{{ image_urls|length - 1 }}"></progress>
+    <input type="range" id="progress" value="0" min="0" max="{{ image_urls|length - 1 }}" style="width: 100%;">
     <div class="btn-container">
         <button class="btn" id="prevButton">Prev</button>
         <button class="btn" id="nextButton">Next</button>

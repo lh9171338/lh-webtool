@@ -23,9 +23,7 @@ git clone https://github.com/lh9171338/lh-webtool.git
 
 cd lh-webtool
 
-python -m build
-
-pip install dist/lh_webtool-1.3.3-py3-none-any.whl
+python -m pip install .
 ```
 
 * Install from the Python Package Index (PyPI)
